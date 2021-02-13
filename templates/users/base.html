@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        {% block headerScripts %}{% endblock headerScripts %}
+        <title>{% block title %}{% endblock title %}</title>
+    </head>
+    <body>
+        {% include 'components/navbarLogin.html' %}
+
+        {% block content %}{% endblock content %}
+
+        <!-- {% include 'components/footer.html' %} -->
+
+        {% block scripts %}{% endblock scripts %}
+
+        <footer class="grey darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col 16 s12 center-align">
+                        {% load static %}
+                        <a href="https://erik172.dev" class="center-align"><img src="{% static 'img/Erik172White.svg' %}" alt="Erik172" class="center-align" style="max-height: 13px;"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

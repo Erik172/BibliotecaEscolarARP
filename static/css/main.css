@@ -1,0 +1,47 @@
+* {
+  scrollbar-color: #454a4d #202324;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  background-color: #00b0ff ;
+  color: #000000 !important;
+  max-height: 64px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+tr {
+  border-bottom: 1px solid rgba(223, 220, 220, 0.507);
+}
+
+.markdownx-preview * {
+  width: 100%;
+  white-space: initial;
+}
+
+.post img {
+  max-width: 100%;
+}
+
+#bannerImageMenu {
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.select-wrapper input.select-dropdown {
+  color: #FFFFFF;
+}
+
+.card.sizeCustomCardBook {
+  min-height: 850px !important;
+  /* height: 800px; */
+}

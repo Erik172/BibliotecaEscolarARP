@@ -1,0 +1,57 @@
+<header class="z-depth-1">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <nav class="light-blue accent-3 black-text z-depth-0">
+          <div class="nav-wrapper">
+            {% load static %}
+            <a href="{% url 'home' %}" class="brand-logo"><img src="{% static 'img/IconBuho1.png' %}"
+                alt="Biblioteca Icon By Erik172" style="max-height: 60px;"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large right black-text"><i
+                class="material-icons black-text">menu</i></a>
+          </div>
+        </nav>
+
+        <ul id="mobile-demo" class="sidenav">
+          {% if request.user.is_authenticated %}
+            <li>
+              <div class="user-view">
+                <div class="background">
+                  {% load static %}
+                  <img src="{% static 'img/background.jpg' %}" id="bannerImageMenu">
+                </div>
+                <a href="/users/{{ request.user }}">
+                  <img class="circle" src="{% if request.user.profile.avatar %}{{ request.user.profile.avatar.url }}{% else %}{% static 'img/avatar.png' %}{% endif %}">
+                  <span class="white-text name">{{ request.user }}</span>
+                  <span class="white-text email">{{ request.user.email }}</span>
+              </a>
+              </div>
+            </li>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+            <li><a href="/users/{{ request.user }}"><i class="material-icons">person</i>Perfil</a></li>
+            <li><div class="divider"></div></li>
+            <li><a href="{% url 'newPost' %}"><i class="material-icons">note_add</i>Nueva Publicacion</a></li> 
+            <li><div class="divider"></div></li> 
+          {% endif %}
+          <li><a href="{% url 'home' %}"><i class="material-icons">home</i>Inicio</a></li>
+          <li><a href="{% url 'posts' %}"><i class="material-icons">description</i>Blog</a></li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li><a href="{% url 'books' %}"><i class="material-icons">auto_stories</i>Libros Online Gratis</a></li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          {% if request.user.is_authenticated %}
+            <li><a class="waves-effect" href="{% url 'logout' %}"><i class="material-icons">logout</i>Cerrar sesion</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}"><i class="material-icons">login</i>Iniciar Sesion</a></li>
+          {% endif %}
+          
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</header>

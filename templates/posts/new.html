@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Nuevo Post | Biblioteca
+{% endblock title %}
+
+{% block content %}
+    <main class="grey darken-4 white-text">
+        <div class="container">
+            
+    <div class="fixed-action-btn">
+        <a href="https://markdown.es/sintaxis-markdown/" target="_blank" class="btn-floating btn-large blue">
+            <i class="large material-icons">help</i>
+        </a>
+    </div>
+        
+            <div class="row">
+                <div class="col s12">
+                    <h4 class="center-align">Nueva Publicacion</h4>
+                </div>
+            </div>
+
+            <form class="row" enctype="multipart/form-data" action="" method="post">
+                {% csrf_token %}
+                {% load widget_tweaks %}
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">title</i>
+                    {% render_field form.title id="title" class="validate white-text" %}
+                    <label for="title">Titulo</label>
+                </div>
+
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">description</i>
+                    {% render_field form.description id="description" data-length="100" class="white-text" %}
+                    <label for="description">Descripcion (Opcional)</label>
+                </div>
+
+                <div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span><i class="material-icons left">image</i> Imagen de portada</span>
+                        {% render_field form.image type="file" class="white-text" %}
+                    </div>
+                    <div class="file-path-wrappper">
+                        {% render_field form.image type="text" class="white-text file-path validate" %}
+                    </div>
+                   
+                </div>
+
+                <div class="input-field col s12">
+                    {% render_field form.content id="content" type="textarea" placeholder="Contenido" class="materialize-textarea white-text" %}
+                    {% render_field form.media %}
+                </div>
+
+                <div class="col s12">
+                    <button type="submit" class="btn waves-effect waves-light col s12 light-blue accent-3 black-text">Publicar</button>
+                </div>
+            </form>
+
+        
+            
+        </div>
+    </main>
+{% endblock content %}

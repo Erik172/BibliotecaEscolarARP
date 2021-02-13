@@ -1,0 +1,28 @@
+<div class="row">
+    {% for post in posts %}
+        {% if post.state == 'Published' %}
+            <div class="col s12 m4">
+                <div class="card medium grey darken-3">
+                    <div class="card-image">
+                        <img src="{{ post.image.url }}" class="materialboxed">
+                        <span class="card-title">{{ post.title }}</span>
+                    </div>
+                    <div class="card-content">
+                        <small>{{ post.created }}</small>
+                        <br>
+                        <span>{{ post.user }}</span>
+                        {% if post.description %}
+                            <p>{{ post.description }}</p>
+                            {% else %}
+                                {% load markdown_extras %}
+                                <p>{{ post.content | markdown | safe }}</p>
+                        {% endif %}
+                    </div> 
+                    <div class="card-action">
+                        <a href="/posts/{{ post.pk }}" class="light-blue-text text-accent-2">Leer mas...</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

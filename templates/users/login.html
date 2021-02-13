@@ -1,0 +1,42 @@
+{% extends 'users/base.html' %}
+
+{% block headerScripts %}
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+{% endblock %}
+
+
+{% block title %}
+    Login | Biblioteca
+{% endblock title %}
+
+{% block content %}
+    <main class="grey darken-4 white-text">
+        <div class="container">
+            <form method="POST" class="row" style="margin-top: 10%;">
+                {% csrf_token %}
+                {% load widget_tweaks %}
+                <div class="col s12">
+                    <h5 class="center-align">Iniciar Sesion</h5>
+                </div>
+
+                <div class="input-field col s12 m4 offset-m4">
+                    <input type="text" name="username" id="username" class="validate white-text" autocomplete="off">
+                    <label for="username">Nombre de usuario</label>
+                </div>
+
+                <div class="input-field inline col s12 m4 offset-m4">
+                    <input type="password" name="password" id="password" class="validate white-text" autocomplete="off">
+                    <label for="password">Contraseña</label>
+                    {% if error %}
+                            <span class="helper-text red-text">{{error}}</span>
+                    {% endif %}
+                </div>
+
+                <div class="col s12 m4 offset-m4">
+                    <button class="btn col s12 light-blue grey-text text-darken-4" type="submit">Ingresar</button>
+                    <span>No tienes una cuanta? <a href="{% url 'signup' %}">Crea una ya!</a></span>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

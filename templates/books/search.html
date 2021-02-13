@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Books | Biblioteca ARP
+{% endblock %}
+
+{% block content %}
+    <main class="grey darken-4 white-text">
+        <div class="container">
+            <div class="row">
+                {% include "components/searchBook.html" %}
+                <div class="col s12">
+                    {% for book in books %}
+                        {% include "components/bookDetails.html" %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Libros | Biblioteca ARP
+{% endblock %}
+
+{% block content %}
+<main class="grey darken-4 white-text">
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="col s12">
+                    <h4 class="center-align">Libros</h4>
+                </div>
+
+                {% include "components/searchBook.html" %}
+            </div>
+        </section>
+
+        <section>
+            <div class="row">
+                <div class="col s12">
+                    <ul class="collapsible hide-on-large-only white black-text">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons">category</i>Categorias</div>
+                            <div class="collapsible-body">
+                                <ul class="collection">
+                                    {% for categories in allCategoriesBooks %}
+                                        <li class="collection-item"><a href="/books/search/category/{{ categories.nicename }}">{{ categories.name }}</a></li>
+                                    {% endfor %}
+                                </ul>  
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col s12">
+                    <div class="col m3">
+                        <ul class="collection hide-on-small-only">
+                            {% for categories in allCategoriesBooks %}
+                                <li class="collection-item"><a href="/books/search/category/{{ categories.nicename }}">{{ categories.name }}</a></li>
+                            {% endfor %}
+                        </ul>  
+                    </div>
+                    {% for book in mostViews %}
+                        {% include "components/bookDetails.html" %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

@@ -18,7 +18,7 @@
                 {% include 'components/publicationsCard.html' %}
             </section>
 
-            <!-- <section>
+            <section>
                 <div class="row">
                     <div class="col s12">
                         <h4 class="center align">Libros</h4>
@@ -26,16 +26,15 @@
                     </div>
 
                     <div class="col s12">
-                        {% include "components/searchBook.html" %}
-                    </div>
-
-                    <div class="col s12">
-                        {% for book in books %}
-                            {% include "components/bookDetails.html" %}
-                        {% endfor %}
+                        {% if books == '500' %}
+                            <h6>Estamos conectados con el sitio web <a href="https://openlibra.com/es">https://openlibra.com/es</a> y por ahora no esta en servcio 😔</h6>
+                            {% else %}
+                                {% include "components/searchBook.html" %}
+                        {% endif %}
+                        </p>
                     </div>
                 </div>
-            </section> -->
+            </section>
 
             {% include 'components/info.html' %}
         </div>

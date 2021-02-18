@@ -5,8 +5,10 @@ from books import services
 
 def home(request):
     posts = Post.objects.all().order_by('-created')
+    books = services.getMostViewBooks(3, 'spanish')
+
     context = {
         'posts': posts,
-        # 'books': services.getMostViewBooks(3, 'spanish')
+        'books': books
     }
     return render(request, 'main/index.html', context)

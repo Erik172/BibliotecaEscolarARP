@@ -7,6 +7,6 @@ def home(request):
     posts = Post.objects.all().order_by('-created')
     context = {
         'posts': posts,
-        'books': services.getMostViewBooks(3, 'spanish')
+        # 'books': services.getMostViewBooks(3, 'spanish')
     }
     return render(request, 'main/index.html', context)

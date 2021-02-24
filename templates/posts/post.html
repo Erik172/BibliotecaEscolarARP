@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-    <main class="grey darken-4 post">
+    <main class="dark-b post">
         <div class="container white-text">    
         <!-- Boton Flotante de aciones de editar y Eliminar -->   
         {% if request.user == post.user %}
@@ -30,9 +30,11 @@
                 <div class="row">
                     <div class="col s12">
                         <h3>{{ post.title }}</h3>
-                        <a href="/users/{{ post.user }}"><span class="light-blue-text text-accent-3">{{ post.user }}</span></a>
-                        <br>
-                        <small>{{ post.created }}</small>
+                        <div>
+                            <a href="/users/{{ post.user }}" class="white-text"><img src="{{ post.user.profile.avatar.url }}" alt="{{ post.user }}" class="avatarPost circle"> por <strong>{{ post.user }}</strong></a>
+                            <br>
+                            <small>{{ post.created }}</small>
+                        </div>
 
                         {% if post.description %}
                             <p>{{ post.description }}</p>
@@ -46,24 +48,8 @@
             <section>
                 <div class="row">
                     <div class="col s12">
-                        <h4>Comentarios  <a href="#modal1" class="btn-floating btn-large modal-trigger waves-effect waves-light light-blue accent-3 pulse tooltipped" data-position="bottom" data-tooltip="Agregar Comentario"><i class="material-icons">add</i></a></h4>
-                        <div id="modal1" class="modal">
-                            <form action="{% url 'newComment' %}" method="post" class="black-text">
-                                {% csrf_token %}
-                                <div class="modal-content">
-                                    <h4>Agregar Comentario</h4>
-                                    <input type="hidden" name="post" value="{{ post.pk }}">
-                                    <div class="input-field">
-                                        <input type="text" id="comment" name="comment">
-                                        <label for="comment">Comentario</label>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                                    <button type="submit" class="btn ligth-blue">Comentar</button>
-                                </div>
-                            </form>
-                        </div>
+                        <h4>Comentarios  <a href="#modalAddComment" class="btn-floating btn-large modal-trigger waves-effect waves-light light-blue accent-3 pulse tooltipped" data-position="bottom" data-tooltip="Agregar Comentario"><i class="material-icons">add</i></a></h4>
+                        {% include "components/modalAddComment.html" %}
                     </div>
                     {% for comment in comments %}
                         <div class="col s12">
@@ -95,23 +81,7 @@
                                 </div>
                             </div>
 
-                            <div id="editCommentModal{{ comment.pk }}" class="modal">
-                                <form action="/posts/edit/comment/{{ comment.pk }}" method="post" class="black-text">
-                                    {% csrf_token %}
-                                    <div class="modal-content">
-                                        <h4>Editar Comentario</h4>
-                                        <input type="hidden" name="post" value="{{ post.pk }}">
-                                        <div class="input-field">
-                                            <input type="text" id="comment" name="comment" value="{{ comment.content }}">
-                                            <label for="comment">Comentario</label>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-                                        <button type="submit" class="btn ligth-blue">Guardar</button>
-                                    </div>
-                                </form>
-                            </div>
+                            {% include "components/modalEditComment.html" %}
                         </div>
                     {% endfor %}
                 </div>

@@ -5,7 +5,7 @@ Libros | Biblioteca ARP
 {% endblock %}
 
 {% block content %}
-<main class="grey darken-4 white-text">
+<main class="dark-b white-text">
     <div class="container">
         {% if mostViews == '500' %}
             <h6>Estamos conectados con el sitio web <a href="https://openlibra.com/es">https://openlibra.com/es</a> y por ahora no esta en servcio 😔</h6>
@@ -23,13 +23,13 @@ Libros | Biblioteca ARP
             <section>
                 <div class="row">
                     <div class="col s12">
-                        <ul class="collapsible hide-on-large-only white black-text">
+                        <ul class="collapsible hide-on-large-only dark-b3 dark-border">
                             <li>
-                                <div class="collapsible-header"><i class="material-icons">category</i>Categorias</div>
+                                <div class="collapsible-header dark-b3"><i class="material-icons">category</i>Categorias</div>
                                 <div class="collapsible-body">
                                     <ul class="collection">
                                         {% for categories in allCategoriesBooks %}
-                                            <li class="collection-item"><a href="/books/search/category/{{ categories.nicename }}">{{ categories.name }}</a></li>
+                                            <li class="collection-item dark-b3 white-text"><a href="/books/search/category/{{ categories.nicename }}">{{ categories.name }}</a></li>
                                         {% endfor %}
                                     </ul>  
                                 </div>
@@ -39,9 +39,9 @@ Libros | Biblioteca ARP
     
                     <div class="col s12">
                         <div class="col m3">
-                            <ul class="collection hide-on-small-only">
+                            <ul class="collection hide-on-small-only dark-border">
                                 {% for categories in allCategoriesBooks %}
-                                    <li class="collection-item"><a href="/books/search/category/{{ categories.nicename }}">{{ categories.name }}</a></li>
+                                    <li class="collection-item dark-b3"><a class="light-blue-text" href="/books/search/category/{{ categories.nicename }}">{{ categories.name }}</a></li>
                                 {% endfor %}
                             </ul>  
                         </div>

@@ -1,0 +1,17 @@
+<div id="modalAddComment" class="modal dark-b2">
+    <form action="{% url 'newComment' %}" method="post" class="white-text">
+        {% csrf_token %}
+        <div class="modal-content">
+            <h4>Agregar Comentario</h4>
+            <input type="hidden" name="post" value="{{ post.pk }}">
+            <div class="input-field">
+                <input type="text" class="white-text" id="comment" name="comment">
+                <label for="comment">Comentario</label>
+            </div>
+        </div>
+        <div class="modal-footer dark-b3">
+            <a href="#!" class="modal-close waves-effect waves-blue btn-flat white-text">Cancelar</a>
+            <button type="submit" class="btn light-blue">Comentar</button>
+        </div>
+    </form>
+</div>

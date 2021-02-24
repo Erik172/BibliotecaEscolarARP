@@ -1,0 +1,17 @@
+<div id="editCommentModal{{ comment.pk }}" class="modal dark-b2 white-text">
+    <form action="/posts/edit/comment/{{ comment.pk }}" method="post" class="white-text">
+        {% csrf_token %}
+        <div class="modal-content">
+            <h4>Editar Comentario</h4>
+            <input type="hidden" name="post" value="{{ post.pk }}">
+            <div class="input-field">
+                <input type="text" id="comment" class="white-text" name="comment" value="{{ comment.content }}">
+                <label for="comment">Comentario</label>
+            </div>
+        </div>
+        <div class="modal-footer dark-b3">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Cancelar</a>
+            <button type="submit" class="btn light-blue accent-3">Guardar</button>
+        </div>
+    </form>
+</div>

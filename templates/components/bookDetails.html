@@ -1,35 +1,35 @@
 <div class="col s12 m4">
-    <div class="card sizeCustomCardBook grey darken-3 white-text">
+    <div class="card large dark-b3 white-text z-depth-3">
         <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="{{ book.cover }}" alt="{{ book.title }}">
+            <img class="activator cardBookImage" src="{{ book.cover }}" alt="{{ book.title }}">
         </div>
-        <div class="card-content">
+
+        <div class="card-content dark-b3">
             <span class="card-title activator">{{ book.title }}<i class="material-icons right">more_vert</i></span>
             <div>
-                <span class="badge">{{ book.ID }}</span>
+                <!-- <span class="badge">{{ book.ID }}</span>
                 {% for categories in book.categories %}
                     <span class="new badge left" data-badge-caption="{{ categories.name }}"></span>
-                {% endfor %}
+                {% endfor %} -->
             </div>
-            <br><br>
             <div>
                 <p><i class="material-icons">person</i> Author: {{ book.author }}</p>
-                <p><i class="material-icons">translate</i> Idioma: {{ book.language }}</p>
-                <p><i class="material-icons">book</i> Paginas: {{ book.pages }}</p>
+                <!-- <p><i class="material-icons">translate</i> Idioma: {{ book.language }}</p> -->
+                <!-- <p><i class="material-icons">book</i> Paginas: {{ book.pages }}</p> -->
                 <p><i class="material-icons">today</i> Año de publicacion: {{ book.publisher_date }}</p>
-                {% if book.url_read_online %}
-                    <a class="btn col s12" href="{{ book.url_read_online }}" target="_blank" style="margin-top: 10px;">Leer</a>
-                {% endif %}
-                {% if book.url_download %}
-                    <a class="btn col s12" href="{{ book.url_download }}" target="_blank" style="margin-top: 10px;">Descargar</a>
-                {% endif %}
-                {% if book.url_details %}
-                    <a class="btn col s12" href="{{ book.url_details }}" target="_blank" style="margin-top: 10px;">Mas detalles</a>
-                {% endif %}
-                <small>{{ book.publisher }}</small>
             </div>
         </div>
-        <div class="card-reveal grey darken-3">
+
+        <div class="card-action">
+            {% if book.url_download %}
+                    <a class="light-blue-text text-accent-3" href="{{ book.url_download }}" target="_blank" style="margin-top: 10px;">Descargar</a>
+            {% endif %}
+            <!-- {% if book.url_details %}
+                    <a class="light-blue-text text-accent-3" href="{{ book.url_details }}" target="_blank" style="margin-top: 10px;">Mas detalles</a>
+            {% endif %} -->
+        </div>
+
+        <div class="card-reveal dark-b3">
             <span class="card-title">{{ book.title }}<i class="material-icons right">close</i></span>
             <!-- <br>
             {% for categories in book.categories %}
@@ -44,13 +44,13 @@
             <p>{{ book.content_short }}</p>
             <div class="col s12">
                 {% if book.url_read_online %}
-                    <a class="btn col s12" href="{{ book.url_read_online }}" target="_blank">Leer</a>
+                    <a class="btn col s12 light-blue accent-3" href="{{ book.url_read_online }}" target="_blank">Leer</a>
                 {% endif %}
                 {% if book.url_download %}
-                    <a class="btn col s12" href="{{ book.url_download }}" target="_blank">Descargar</a>
+                    <a class="btn col s12 light-blue accent-3" href="{{ book.url_download }}" target="_blank">Descargar</a>
                 {% endif %}
                 {% if book.url_details %}
-                    <a class="btn col s12" style="margin-top: 10px;" href="{{ book.url_details }}" target="_blank">Mas detalles</a>
+                    <a class="btn col s12 light-blue accent-3" style="margin-top: 10px;" href="{{ book.url_details }}" target="_blank">Mas detalles</a>
                 {% endif %}
             </div>
         </div>

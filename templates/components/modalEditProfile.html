@@ -1,4 +1,4 @@
-<div id="modalEditProfile" class="modal black-text">
+<div id="modalEditProfile" class="modal dark-b2 white-text">
     <form action="/users/edit/{{ user.username }}" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         <div class="modal-content">
@@ -7,46 +7,40 @@
             <div class="file-field input-field col s3">
                 <div class="btn">
                     <span>Foto de Perfil</span>
-                    <input type="file" name="avatar">
+                    <input type="file" name="avatar" class="white-text" value="{{ user.profile.avatar }}">
                 </div>
                 <div class="file-path_wrapper">
-                    <input class="file-path validate" type="text">
+                    <input class="file-path validate white-text" type="text" value="{{ user.profile.avatar }}">
                 </div>
             </div>
 
-            <!-- <div class="input-field">
-                <i class="material-icons prefix">person</i>
-                <input type="text" class="validate" name="username" id="username" value="{{ user.username }}">
-                <label for="username">Nombre de Usuario</label>
-            </div> -->
-
             <div class="input-field">
                 <!-- <i class="material-icons prefix">email</i> -->
-                <input type="text" class="validate" name="email" id="email" value="{{ user.email }}">
+                <input type="text" class="validate white-text" name="email" id="email" value="{{ user.email }}" >
                 <label for="email">Correo Electronico</label>
             </div>
 
             <div class="input-field">
                 <!-- <i></i> -->
-                <input type="text" class="validate" name="first_name" id="first_name" value="{{ user.first_name }}">
+                <input type="text" class="validate white-text" name="first_name" id="first_name" value="{{ user.first_name }}">
                 <label for="first_name">Nombres</label>
             </div>
 
             <div class="input-field">
                 <!-- <i class="material-icons prefix"></i> -->
-                <input type="text" class="validate" name="last_name" id="last_name" value="{{ user.last_name }}">
+                <input type="text" class="validate white-text" name="last_name" id="last_name" value="{{ user.last_name }}">
                 <label for="last_name">Apellidos</label>
             </div>
 
             <div class="input-field">
                 <!-- <i class="material-icons prefix"></i> -->
-                <textarea name="description" id="description" class="materialize-textarea">{{ user.profile.description }}</textarea>
+                <textarea name="description" id="description" class="materialize-textarea white-text">{{ user.profile.description }}</textarea>
                 <label for="description">Descripcion (Opcional)</label>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn" type="submit">Guardar</button>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <div class="modal-footer dark-b3">
+            <button class="btn light-blue accent-3" type="submit">Guardar</button>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat white-text">Cancelar</a>
         </div>
     </form>
 </div>

@@ -4,7 +4,7 @@ _Biblioteca Escolar del Colegio Tecnico Aldemar Rojas Plazas_
 
 > Construido con Django
 
-![BibliotecaEscolarARP](/static/img/IconBuho1.png)
+![BibliotecaEscolarARP](/static/img/IconBuhoWhite.png)
 
 ## Comenzando 🚀
 

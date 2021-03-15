@@ -10,5 +10,5 @@ def home(request):
 #     context = {
 #         'posts': posts,
 #         'books': books
-    }
+#     }
     return render(request, 'main/index.html')

@@ -4,7 +4,7 @@ import json
 URL = 'https://www.etnassoft.com/api/v1/get/?'
 
 
-def searchBookTitle(title: str, num_items=10000, lang='all'):
+def searchBookTitle(title: str, num_items=10000, lang='all', verify=False):
     response = requests.get(f'{URL}book_title="{title}"&decode=true&num_items={num_items}&lang={lang}')
     if response.status_code == 200:
         responseJson = response.json()

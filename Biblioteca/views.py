@@ -4,11 +4,11 @@ from posts.models import Post
 from books import services
 
 def home(request):
-#     posts = Post.objects.all().order_by('-created')
+    posts = Post.objects.all().order_by('-created')
 #     books = services.getMostViewBooks(3, 'spanish')
 
-#     context = {
-#         'posts': posts,
+    context = {
+        'posts': posts
 #         'books': books
-#     }
-    return render(request, 'main/index.html')
+    }
+    return render(request, 'main/index.html', context)
